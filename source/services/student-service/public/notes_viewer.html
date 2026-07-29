@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="note.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_home</title>
+</head>
+<body >
+    <div id="overlay" style="opacity: 1; position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 200ms ease-in-out;
+    pointer-events: all;
+    align-items: center;
+    text-align: center;
+    "></div>    
+    <script>
+        
+document.addEventListener("DOMContentLoaded", function () {
+    const url=sessionStorage.getItem('url');
+    const file_type= sessionStorage.getItem('file_type');
+    if(file_type=="image"){
+        document.getElementById('overlay').innerHTML+= `<embed type="image/png" src="`+url+`" width="500" height="500" >`;
+    }
+    
+    else {
+        document.getElementById('overlay').innerHTML+= `
+            <embed src="`+url+`" type="application/pdf" width="100%" height="100%">
+                
+            </embed> 
+        `;
+
+    }
+});
+    </script>                     
+</body>
+</html>

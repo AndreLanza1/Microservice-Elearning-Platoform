@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="all_notes.css">
+    <script src="all_notes.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_home</title>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <div class="menu-items">
+            <p><a href="/home"><i class="fa-solid fa-house-user"></i> Home</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursesPage')"><i class="fa-solid fa-chalkboard"></i> Courses</a></p>
+            <p><a href="/my_notes"><i class="fa-solid fa-file-pen"></i> My Notes</a></p>
+        </div>
+    </div>
+
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+
+    <div class="sidebar" id="profileSidebar">
+        <div class="menu-items">
+            <p><a onclick="personalData()"><i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+
+    <div id="main">
+        <!-- HEADER: menu | logo | welcome + filtro | profilo -->
+        <div class="header">
+            <img id="openNav" src="./images/menu.png" class="menu" onclick="open_Menu()" alt="menu">
+
+            <div class="wrapper">
+                <img src="./images/Spark-LOGO-removebg-preview.png" id="logo" alt="Spark logo">
+            </div>
+
+            <h1 id="welcomeUser"></h1>
+
+            <img id="profile" src="./images/profilo.png" alt="profile" onclick="open_Profile()">
+        </div>
+
+        <div class="searchRow">
+            <div class="searchBox">
+                <input id="searchInput" class="searchInput" type="text" name="" placeholder="Search a note">
+                <button class="searchButton" href="#"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div id="courseFilterContainer">
+                <label for="courseFilter">Filter by course:</label>
+                <select id="courseFilter" class="courseFilter"></select>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Notes</h1>
+            <div class="container-box" id="note-box">
+                <p id="no-results">
+                    Ops...No note has been found
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

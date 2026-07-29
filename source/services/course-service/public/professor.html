@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="professor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="professor.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_home</title>
+</head> 
+<body>
+     
+    
+
+    <div class="sidebar"  id="profileSidebar">
+        <div class = "menu-items" >
+            <p><a onclick="personalData()"> <i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+      
+      <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+
+
+      <div id="main">
+        <table class="header">
+            <tr>
+                <th style="width: 15%;"></th>
+                <th>
+                    <img src="./images/Spark-LOGO-removebg-preview.png" id="logo">
+                </th>
+                <th>
+                    <h1 id="welcomeUser"></h1>
+                </th>
+                <th style="text-align: right;">
+                    <img id="profile" src="./images/profilo.png" alt="" onclick="open_Profile()">
+                </th>
+            </tr>
+        </table>
+
+    <!-- Da aggiungere la funzione che aggiunge i corsi a "courses"-->
+    <div class ="container"> 
+        <h1>My courses</h1>
+        <div class ="container-box" id="coursesContainer">   
+            
+        </div>
+
+    <button class="new_course" onclick="openPopup('popup','overlay')">Add course</button>
+
+    <div class="popup" id="popup">
+        <h1>New Course</h1> 
+        <div class = "input-field" >
+            <div>
+                <label>Course Name</label>
+                <input type="text" name="" required="" id="course_name"> 
+                <span></span>
+                <input type="text" value="description" name="" required="" id="description">
+                <span></span>
+                <label>Subject</label>
+                <select name="" required id="subject">
+                    <option value="">Select the subject</option>
+                    <option value="Arts & Design">Arts & Design</option>
+                    <option value="Business & Management">Business & Management</option>
+                    <option value="Communication & Media">Communication & Media</option>
+                    <option value="Engineering & Technology">Engineering & Technology</option>
+                    <option value="Health & Life Sciences">Health & Life Sciences</option>
+                    <option value="Humanities">Humanities</option>
+                    <option value="Law & Legal Studies">Law & Legal Studies</option>
+                    <option value="Mathematical Sciences">Mathematical Sciences</option>
+                    <option value="Natural Sciences">Natural Sciences</option>
+                    <option value="Social Sciences">Social Sciences</option>
+                </select>
+                <span></span>
+            </div>
+        </div>
+        <div class = "buttonbox">
+            <button id="add" onclick="addCourse('popup', 'overlay')">Add</button>
+            <button id="cancel" onclick="closePopup('popup', 'overlay')">Cancel </button>
+            
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="closePopup('popup', 'overlay')"> </div>
+        
+    </div>
+
+</body>
+</html>

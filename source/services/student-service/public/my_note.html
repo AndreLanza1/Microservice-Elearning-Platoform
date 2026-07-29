@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="note.css">
+    <script src="my_note.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_home</title>
+</head>
+<body>
+    <div class="sidebar"  id="mySidebar">
+        <div class = "menu-items">
+            <p><a href="/home"><i class="fa-solid fa-house-user"></i> Home</a></p>
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursesPage')"><i class="fa-solid fa-chalkboard"></i> Courses</a>
+            <p><a href="/all_notes"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/search-in-browser.png"/> All Notes</a></p>
+        </div>
+    </div>
+
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+      
+    <div class="sidebar"  id="profileSidebar">
+        <div class = "menu-items" >
+            <p><a onclick="personalData()"> <i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+            
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+
+    <div id="main">
+        <div class="header">
+            <img id="openNav" src="./images/menu.png" class="menu" onclick="open_Menu()">
+            <div class="wrapper">
+                <img src="./images/Spark-LOGO-removebg-preview.png" id="logo">
+            </div>
+            <h1 id="welcomeUser"></h1>
+            <img id="profile" src="./images/profilo.png" alt="" onclick="open_Profile()">
+        </div>
+
+        <div class="searchBox">
+            <input id="searchInput"class="searchInput" type="text" name="" placeholder="Search a note">
+            <button class="searchButton" href="#"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+        </div>
+        
+        <div class ="container"> 
+            <h1>Notes</h1>
+            <div class ="container-box" id="note-box">  
+                <p id="no-results">
+                    Ops...No note has been found 
+                </p>               
+            </div>
+        </div>
+
+        <button class="new_note" id="addnote" onclick="openPopup('popup','overlay')">Add note</button>
+        
+        <div class="popup" id="popup">
+            <h1>New Note</h1> 
+            <div class="Form">
+                <form id="noteForm">
+            
+                    <label for="title">Note Title</label>
+                    <input type="text" id="title" required>
+    
+            
+                    <textarea id="description" value="description"></textarea>
+    
+                    <label for="file">File</label>
+                    <input class='file' id='file' type="file" single>
+    
+                    <label for="fileType">File Type</label>
+                    <select id="fileType" required>
+                        <option value="pdf">PDF</option>
+                        <option value="doc">DOC</option>
+                        <option value="image">Image</option>
+                    </select>
+    
+                    <button type="submit" class="btn" onclick="closePopup('popup','overlay')">Submit</button>
+                </form>
+            </div>
+        
+        </div>
+        <div id="overlay" class="overlay" onclick="closePopup('popup','overlay')"> </div>
+        
+    </div>
+                         
+</body>
+</html>

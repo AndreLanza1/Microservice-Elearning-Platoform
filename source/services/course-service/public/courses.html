@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="courses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studen_home</title>
+</head> 
+<body>
+    <div class="sidebar"  id="mySidebar">
+        <div class = "menu-items">
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/home')"><i class="fa-solid fa-house-user"></i> Home</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/my_notes')"><i class="fa-solid fa-file-pen"></i> My Notes</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/all_notes')"><i class="fa-solid fa-file-pen"></i> All Notes</a></p>
+
+        </div>
+    </div>
+
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+      
+    <div class="sidebar"  id="profileSidebar">
+        <div class = "menu-items" >
+            <p><a onclick="personalData()"> <i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+      
+    <div id="main">
+        <div class="header">
+            <img id="openNav" src="./images/menu.png" class="menu" onclick="open_Menu()">
+            <div class="wrapper">
+                <img src="./images/Spark-LOGO-removebg-preview.png" id="logo">
+            </div>
+            <h1 id="welcomeUser"></h1>
+            <img id="profile" src="./images/profilo.png" alt="" onclick="open_Profile()">
+        </div>
+
+        <!-- Da aggiungere la funzione che aggiunge i corsi a "courses"-->
+            
+        <div class="searchBox">
+            <input id="searchInput"class="searchInput" type="text" name="" placeholder="Search a course">
+            <button class="searchButton" href="#"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+        </div>
+
+        <div class ="container">
+            <h1>Courses</h1>
+                <div class="container-box" id="course-container">
+                    <p id="no-results">
+                        Ops...No course has been found
+                    </p>
+                </div>
+        </div>
+
+        <button class="new_course" id="addcourse" onclick="openPopup('popup','overlay')">Add course</button>
+
+        <div class="popup" id="popup">
+            <h1>New Course</h1> 
+            <div class = "input-field" >
+                <div>
+                    <label>Course Name</label>
+                    <input type="text" name="" required="" id="course_name"> 
+                    <span></span>
+                    <label>Professor</label>
+                    <input type="text" name="" required="" id="description"> 
+                    <span></span>
+                </div>
+            </div>
+            <div class = "buttonbox">
+                <button id="add">Search</button>
+                <button id="cancel" onclick="closePopup('popup', 'overlay')">Cancel </button>
+            </div>
+        </div>
+
+    <!-- <button class="new_course" id="addcourse" onclick="openPopup('popup','overlay')">Add course</button> -->
+
+    <!-- <div class="popup" id="popup">
+        <h1>New Course</h1> 
+        <div class = "input-field" >
+            <div>
+                <label>Course Name</label>
+                <input type="text" name="" required="" id="course_name"> 
+                <span></span>
+                <label>Professor</label>
+                <input type="text" name="" required="" id="description"> 
+                <span></span>
+            </div>
+        </div>
+        <div class = "buttonbox">
+            <button id="add">Search</button>
+            <button id="cancel" onclick="closePopup('popup', 'overlay')">Cancel </button> 
+        </div>
+    </div>  Ehmmmm non so perchè è doppio -->
+
+    <div id="overlay" class="overlay" onclick="closePopup('popup','overlay')"> </div>
+
+
+    <div class="popup-search" id="popup-search">
+        <div class="search-results" id="search-results">
+        </div>
+        <button id="close-search" onclick="closeSearchPopup('popup-search','overlay-search')">Close</button>
+    </div>
+
+    <div id="overlay-search" class="overlay-search" onclick="closeSearchPopup('popup-search','overlay-search')"> </div>
+    
+    <script src="courses.js"></script> 
+      
+      
+</body>
+</html>

@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    background: #293b5c;  
+
+}
+#welcomeUser{
+    padding-top: 2%;
+    color: #ffffff;
+    padding-right: 3%;
+    margin-left: 30px;
+    margin-right:20px;
+    font-size: medium;
+    font-family: Poppins;
+}
+.body {
+    margin-top: 2%;
+    padding-top: 2%;
+    background-color: aliceblue;
+    text-align: center;
+    min-height: 100vh; /* Ensures it reaches the end of the page */
+    box-sizing: border-box; /* Includes padding in height calculation */
+}
+
+#logo{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    padding-top: 5%;
+    height: auto;
+    margin-left: 300px;
+    
+}
+
+/*menu*/
+.closebtn{
+    text-align: left;
+}
+.header{
+    width: 100%;
+    text-align: center;
+}
+.menu{
+    padding-left: 2%;
+    padding-top: 2%;
+    width: 40px;
+    height: 40px;
+}
+#profile{    
+    margin-right: 10%;
+    padding-top: 0%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.sidebar {
+    display: none;
+    position:fixed;
+    height: 100%;
+    text-align: center;
+    background-color: #ffffff; 
+    box-shadow: 0 8px 16 px 0 ;
+    z-index: 1;
+    transition: 0.5s; 
+    /* transform: translateX(-50%); centro il menu rispetto al pulsante*/ 
+}
+#profileSidebar {
+    position: fixed;
+    top: 0;
+    right: 0; /* <-- invece di left: 0 */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+    display: none; /* inizialmente nascosto */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.3); 
+}
+
+/* Stile dei link nel menu */
+.sidebar a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+.menu-items p{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-items a:hover {background-color: #f1f1f1}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal (Hidden by Default) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    width: 50%;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea, select {
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.container {
+    background-color : white;
+    width: 60%;
+    height: 40rem;
+    border-radius: 30px;
+    border: 0;
+    margin: 0 auto;
+    
+    
+}
+
+.container-box{
+    height: 80%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+
+.container h1{
+    font-size: 40px;
+    margin-left: 30px;
+    padding-top: 18px;
+}
+
+.box{
+    
+    width: 80%;
+    margin: 0 auto;
+    height: 60%;
+    border-radius: 30px;
+    background-size: cover;
+ 
+}
+
+
+.box:hover{
+    cursor: pointer;
+}
+
+
+
+/* Contenitore della scrollbar */
+.container-box::-webkit-scrollbar {
+    width: 10px; /* Larghezza della scrollbar */
+    
+  }
+  
+  /* Colore della track (sfondo della scrollbar) */
+  .container-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Colore della thumb (parte mobile della scrollbar) */
+  .container-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  /* Quando si passa sopra con il mouse */
+  .container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .new_course {
+    position: fixed;
+    bottom: 30px;  /* Distanza dal fondo */
+    right: 30px;   /* Distanza dal lato destro */
+    background-color: #293b5c;  
+    color: rgb(227, 197, 2);
+    border: 4px solid rgb(227, 197, 2);
+    border-radius: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    
+  }
+
+  .new_course:hover {
+    background-color: #067dfd;
+    transform: scale(1.1);  /* Effetto zoom al passaggio del mouse */
+  }
+
+  .popup{
+    background-color: white;
+    position: fixed;
+    padding: 10px;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-50%) scale(0) ;
+    transition: 200ms ease-in-out;
+    z-index: 10;
+    width: 700px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.popupactive{
+    transform: translate(-50%,-50%) scale(1) ;
+}
+
+.popup h1{
+    font-family: Poppins;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top: 0;
+    color: #293b5c;
+    margin-bottom: 20px;
+}
+
+.popup h2{
+    font-family: Poppins;
+    margin-left: 10px;
+    font-weight: 450;
+    color: #293b5c;
+    margin-bottom: 5px;
+}
+
+.popup h3{
+    font-family: Poppins;
+    margin-left: 10px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #293b5c;
+}
+
+.description{
+    font-family: Poppins;
+    margin-left: 10px;
+    overflow: auto;
+    color : black;
+    padding-right: 10px;
+    height: 40%;
+}
+
+#description{
+    display: none;
+}
+
+.overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+}
+.overlaybar{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0; 
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+
+}
+
+.overlayactive{
+    opacity: 1 ; 
+    pointer-events: all;
+}
+
+
+.input-field input[type="text"]
+{
+    width: 95%;
+    font-size: 20px;
+    color: #293b5c;
+    border-radius: 10px;
+}
+
+.input-field label{
+    font-size: 20px;
+    color: #293b5c;
+}
+
+#subject{
+    border-radius: 10px;
+    width: 98%;
+}
+
+.buttonbox{
+    justify-content: space-evenly;
+    display: flex;
+    margin: 0 auto;
+}
+
+#cancel {
+    
+    width: 200px;
+    background-color: #293b5c;
+    color:#ffffff;
+    font-size: 30px;
+    border-radius:30px;
+    transition: 200ms;
+}
+
+#cancel:hover{
+    background-color: #067dfd;
+    transform:scale(1.1);
+}
+
+#add:hover{
+    background-color: #067dfd;
+    transform:scale(1.1);
+
+
+}
+
+#add {
+    align-items: center;
+    width: 200px;
+    background-color: #293b5c;
+    color:#ffffff;
+    font-size: 30px;
+    border-radius:30px;
+    transition: 200ms;
+}
+
+#art{
+    background-size: contain;
+    background-image: url("images/Arts.jpg");
+}
+
+#bam{
+    background-size: fill;
+    background-image: url("images/Business.jpg");
+}
+
+#cam{
+    background-size: contain;
+    background-image: url("images/Comunication.jpg");
+}
+
+#engandtech{
+    background-size: cover;
+    background-image: url("images/Engineering.png");
+}
+
+#handlife{
+    background-size: contain;
+    background-image: url("images/HealthLife.jpg");
+}
+#human{
+    background-size: contain;
+    background-image: url("images/Humanities.avif");
+}
+#law{
+    background-size: contain;
+    background-image: url("images/Law.jfif");
+}
+#math{
+    background-size: contain;
+    background-image: url("images/Math.jfif");
+}
+
+#natty{
+    background-size: contain;
+    background-image: url("images/Natural.jfif");
+}
+
+#social{
+    background-size: 100% 120%;
+    background-image: url("images/Social.jfif");
+}

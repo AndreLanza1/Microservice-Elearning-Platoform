@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK</title>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="./Spark-LOGO.png" >
+    </div>
+    <div class="wrapperbot">
+        <div class ="box" onclick="redirectToLogin('student')">
+            <h1> Are you a student ? </h1>
+            <img src="Student.png"> 
+        </div>
+        <div class ="box" id="prof" onclick="redirectToLogin('teacher')">
+            <h1> Are you a teacher ? </h1>
+            <img src ="Professor.png" > 
+        </div>
+    </div>
+    
+    <script>
+        function redirectToLogin(role) {
+            sessionStorage.setItem("userRole", role);
+            window.location.href = `/access`;
+        }
+
+        function showErrorPopup(msg) {
+            const popup = document.createElement('div');
+            popup.innerText = msg;
+            popup.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #e74c3c;
+                color: white;
+                padding: 12px 24px;
+                font-size: 16px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 9999;
+                animation: fadeIn 0.3s ease-out;
+            `;
+            document.body.appendChild(popup);
+
+            setTimeout(() => {
+                popup.style.transition = 'opacity 0.5s';
+                popup.style.opacity = '0';
+                setTimeout(() => popup.remove(), 500);
+            }, 3000);
+        }
+
+        // Show popup if ?error=... is present
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const error = params.get('error');
+            if (error) {
+                showErrorPopup(decodeURIComponent(error));
+
+                // Remove the error from the URL
+                const newUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        });
+    </script>
+</body>
+</html>

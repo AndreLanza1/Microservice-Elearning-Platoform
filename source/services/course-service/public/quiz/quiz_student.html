@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quizzes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/quiz/quiz_student.css">
+   
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <div class="menu-items">
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/home')"><i class="fa-solid fa-house-user"></i> Home</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursesPage')"><i class="fa-solid fa-chalkboard"></i> Courses</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/my_notes')"><i class="fa-solid fa-file-pen"></i> My Notes</a></p>
+            <p><a href="javascript:void(0)" onclick="navigateTo(7070, '/all_notes')"><i class="fa-solid fa-file-pen"></i> All Notes</a></p>
+        </div>
+    </div>
+    
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+    
+    <div class="sidebar" id="profileSidebar">
+        <div class="menu-items">
+            <p><a onclick="personalData()"><i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+    
+    <div id="main">
+        <div class="header">
+            <img id="openNav" src="../images/menu.png" class="menu" onclick="open_Menu()">
+            <div class="wrapper">
+                <img src="../images/Spark-LOGO-removebg-preview.png" id="logo">
+            </div>
+           
+            <img id="profile" src="../images/profilo.png" onclick="open_Profile()">
+        </div>
+
+        <!-- Tab -->
+        <div class="box" id="titlebox">
+            <h1 id="courseTitle"></h1>
+        </div>
+    
+        <div class="sectionbar">
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursePage')">Home</a>
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/QuizPage')">Tests</a>
+            <label id="stud_annou"  onclick="openStudents()" >Students</label>
+        </div>
+         
+        <!-- Quizzes -->
+        <div class="main-container" id="main-container">
+            
+            <div class="quiz-container" id="quizzes-list">
+                <!-- Quiz cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="students-box" id="students-box"> </div>
+    </div>
+
+    
+    
+    <!-- Take Quiz Popup -->
+    <div class="overlay" id="quiz-overlay">
+        <div class="popup" id="quiz-popup">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h1 id="popup-quiz-title">Quiz Title</h1>
+            <p class="popup-description" id="popup-quiz-description">Quiz description will appear here</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="quiz-progress"></div>
+            </div>
+            
+            <form id="quiz-form">
+                <div id="questions-container">
+                    <!-- Questions will be inserted here -->
+                </div>
+                
+                <div class="btn-container">
+                    <button type="button" class="action-btn cancel-btn" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="action-btn submit-btn">Submit Quiz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <script src="/quiz/quiz_student.js"></script> 
+
+</body>
+</html>

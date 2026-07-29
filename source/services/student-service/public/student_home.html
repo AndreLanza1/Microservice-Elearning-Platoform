@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="student_home.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_home</title>
+</head>
+<body>
+    <div class="sidebar"  id="mySidebar">
+        <div class = "menu-items">
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursesPage')"><i class="fa-solid fa-chalkboard"></i> Courses</a>
+            <p><a href="/my_notes"><i class="fa-solid fa-file-pen"></i> My Notes</a></p>
+            <p><a href="/all_notes"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/search-in-browser.png"/> All Notes</a></p>
+        </div>
+    </div>
+
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+      
+    <div class="sidebar"  id="profileSidebar">
+        <div class = "menu-items" >
+            <p><a onclick="personalData()"> <i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+
+    <div id="main">
+        <div class="header">
+            <img id="menu" src="./images/menu.png" class="menu" onclick="open_Menu()">
+            <img class="wrapper" src="./images/Spark-LOGO-removebg-preview.png" id="logo">
+            <h1 id="welcomeUser"></h1>
+            <img id="profile" src="./images/profilo.png" alt="" onclick="open_Profile()">
+        </div>
+
+        <div class="body">
+            <div class ="container"> 
+                <div class="container-header">
+                    <h1>Notes</h1>
+                    <button class="view-all-btn" onclick="viewAllNotes()">View all</button>
+                </div>
+                <div class ="container-box" id="note-box">   
+                    <!-- Notes will be dynamically loaded here --> 
+                </div>
+            </div>
+            <br>
+            <div class ="container"> 
+                <div class="container-header">
+                    <h1>Courses</h1>
+                    <button class="view-all-btn" onclick="viewAllCourses()">View all</button>
+                </div>
+                <div class ="container-box" id="course-box">  
+                    <!-- Courses will be dynamically loaded here --> 
+                </div>
+            </div>
+        </div>
+    </div>
+            
+
+         
+</body>
+</html>

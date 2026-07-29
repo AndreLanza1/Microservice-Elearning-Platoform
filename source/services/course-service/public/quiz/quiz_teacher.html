@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Quizzes</title>
+    <link rel="stylesheet" type="text/css" href="/quiz/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <div class="menu-items">
+           <p><a href="/CoursesPage"><i class="fa-solid fa-chalkboard"></i> Courses</a></p>
+        </div>
+    </div>
+    
+    <div id="overlaybar" class="overlaybar" onclick="close_Menu()"></div>
+    
+    <div class="sidebar" id="profileSidebar">
+        <div class="menu-items">
+            <p><a onclick="personalData()"><i class="fa-solid fa-user"></i> Personal Data</a></p>
+            <p><a onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></p>
+        </div>
+    </div>
+
+    <div id="overlaysidebar" class="overlaybar" onclick="close_Profile()"></div>
+    
+    <div id="main">
+        <div class="header">
+            <img id="openNav" src="../images/menu.png" class="menu" onclick="open_Menu()">
+            <div class="wrapper">
+                <img src="../images/Spark-LOGO-removebg-preview.png" id="logo">
+            </div>
+           
+            <img id="profile" src="../images/profilo.png" onclick="open_Profile()">
+        </div>
+
+        <!-- Tab -->
+        <div class="box" id="titlebox">
+            <h1 id="courseTitle"></h1>
+        </div>
+    
+        <div class="sectionbar">
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/CoursePage')">Home</a>
+            <a href="javascript:void(0)" onclick="navigateTo(6060, '/QuizPage')">Tests</a>
+            <label id="stud_annou"  onclick="openStudents()" >Students</label>
+        </div>
+         
+        <!-- Quizzes -->
+         
+        <div class="main-container" id="main-container">
+            <div class="quiz-header" id="quiz-header">
+                <button class="new-quiz" id="new-quiz-btn">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            
+            <div class="quiz-container" id="quizzes-list">
+                <!-- Quiz cards will be inserted here by JavaScript -->
+            </div>
+            
+        </div>
+        <div class="students-box" id="students-box"> </div>
+
+
+    </div>
+    
+    <!-- Create Quiz Popup -->
+    <div class="overlay" id="quiz-overlay">
+        <div class="popup" id="quiz-popup">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h1>Create New Quiz</h1>
+            
+            <form id="quiz-form">
+                <div class="form-group">
+                    <label for="quiz-title">Quiz Title</label>
+                    <input type="text" id="quiz-title" placeholder="Enter quiz title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quiz-description">Quiz Description</label>
+                    <textarea id="quiz-description" placeholder="Enter quiz description" required></textarea>
+                </div>
+                
+                <div id="questions-container">
+                    <!-- Question forms will be inserted here -->
+                </div>
+                
+                <button type="button" class="add-question-btn" id="add-question-btn">
+                    <i class="fa-solid fa-plus"></i> Add Question
+                </button>
+                
+                <div class="btn-container">
+                    <button type="button" class="action-btn cancel-btn" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="action-btn save-btn">Save Quiz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/quiz/quiz.js"></script> 
+</body>
+</html>
